@@ -1,22 +1,94 @@
-import Image from "next/image";
-import { Scrollyteller } from "atlas-stories-react";
+'use client';
 
-export default function Home() {
+import { Scrollyteller, Folio } from '@nomic-ai/atlas-stories-react';
+import '@nomic-ai/atlas-stories-react/dist/style.css';
+export default function Page() {
+  console.log({ Scrollyteller });
+
   return (
-    <div className="flex flex-col items-center min-h-screen px-4 pt-20">
-      <div className="max-w-3xl w-full">
-        <h1 className="text-4xl font-bold mb-6 text-center">Post Title</h1>
-        <p className="text-lg leading-relaxed mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-          risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec,
-          ultricies sed, dolor.
-        </p>
-        <p className="text-lg leading-relaxed">
-          Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper
-          congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie,
-          enim est eleifend mi, non fermentum diam nisl sit amet erat.
-        </p>
-      </div>
+    <div
+      className="main"
+      style={{
+        margin: '50px',
+        maxWidth: 'calc(100vw - 100px)',
+      }}
+    >
+      <h1>Atlas story</h1>
+      <Scrollyteller map="nomic/wiki-people/map/c0551f2f-b449-46dd-92ed-3e4fd17e08e1">
+        <Folio zoom={{ x: [-50, 50], y: [-50, 50] }}>
+          This map is made of people. Each dot is a person, and the people are
+          organized by similarity. It's like soylent green but with more
+          famousness.
+        </Folio>
+
+        <Folio hash="bwzI">
+          The biggest level of organization is about occupation.
+        </Folio>
+
+        <Folio hash="t32w" zoom={{ x: [-50, 50], y: [-50, 50] }}>
+          Wikipedia *loves* sports. Athletes are about 50% of all people in
+          Wikipedia, and occupy the entire bottom of the map.
+        </Folio>
+
+        <Folio hash="eXxy" zoom={{ x: [-18, 52], y: [5, 52] }}>
+          About one in seven of the people on Wikipedia play soccer *alone*.
+          Among soccer players, the sub-organization is by country.
+        </Folio>
+
+        <Folio hash="Cofv" zoom={{ x: [-32, 45], y: [-47, 32] }}>
+          But categories aren't perfect -- we can't distinguish in the
+          occupational categories between players of **American** football (
+          where athletes compete not to kick a ball but to see who can take the
+          most traumatic brain injuries for the team ) and players of soccer
+          football.
+        </Folio>
+
+        <Folio hash="lnWe" zoom={{ x: [-32, 45], y: [-47, 32] }} duration={300}>
+          This is a case where Atlas's semantic filters can help. Let's embed
+          everything by vector similarity to a sentence about American football.
+          {'>'} A player of football who runs up and down the gridiron with the
+          pigskin. Hike! Like Tom Brady. The red dots are the most similar, and
+          the yellow the least.
+        </Folio>
+
+        <Folio hash="iQBh" zoom={{ x: [-32, 45], y: [-47, 32] }} duration={300}>
+          Conversely, comparing to the sentence:
+          {'>'} A player of football who kicks and scores, drawing penalties and
+          red cards like Cristiano Ronaldo or Lionel Messi. We get almost
+          opposte results.
+        </Folio>
+
+        <Folio hash="mnJh" zoom={{ x: [-40, 45], y: [-47, 42] }}>
+          We can position by those two axes -- the "American" axis on the x axis
+          and the "Soccer" axis on the y -- to use these arbitrary sentences to
+          partition between the two sports. The farther to the right is US
+          football; to the top is soccer. The green to the lower right in this
+          vector space are the Americans once again. The partition is clean, but
+          not completely clear; some people fall in between.
+        </Folio>
+
+        <Folio hash="jbcl" zoom={{ x: [-5, 10], y: [-20, -15] }}>
+          You don't need embeddings to take advantage of Atlas's powerful
+          filters! Look at Europe, colored by region.
+        </Folio>
+
+        <Folio hash="rxzQ" zoom={{ x: [-5, 10], y: [-20, -15] }}>
+          Let's color by people born since 1945. You can clearly see the nations
+          of Europe.
+        </Folio>
+
+        <Folio hash="Vtu2" zoom={{ x: [-5, 10], y: [-20, -15] }}>
+          Let's color by people born between 1870 and 1945. These are the old
+          borders, with the German empire and fuzzier nationalities in Eastern
+          Europe.
+        </Folio>
+
+        <Folio hash="t6J0" zoom={{ x: [-5, 10], y: [-20, -15] }}>
+          When you move to where the people die, the definition increases.
+        </Folio>
+      </Scrollyteller>
     </div>
   );
 }
+
+// export default Page;
