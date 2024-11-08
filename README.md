@@ -20,8 +20,8 @@ Import Scrollyteller and Folio at the top of your file, and include your `Folio`
 
 ```markdown
 import React from 'react';
-import { Scrollyteller } from 'atlas-react-stories/lib/Scrollyteller';
-import { FolioC as Folio } from 'atlas-react-stories/libs/Folio';
+import { Scrollyteller, Folio } from '@nomic-ai/atlas-stories-react';
+import '@nomic-ai/atlas-stories-react/dist/style.css';
 ...
 ...
 
