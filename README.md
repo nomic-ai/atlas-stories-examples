@@ -2,6 +2,10 @@ This is an example repository for creating Data Stories with [Nomic Atlas](https
 
 This creates folios that can step & scroll through different views of your Atlas data maps.
 
+# Join our Discord
+
+We invite you to join our [Discord channel](https://discord.gg/qP5fwTSX) so you can ask questions and brainstorm data mapping ideas with the Nomic team & our community of users testing this new storytelling feature.
+
 # Quickstart
 
 1) Explore your data in Atlas & generate a share link for each different view of the data you want in your story.
