@@ -3,19 +3,111 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Nomic Brand Colors */
+  
+  /* Primary Green */
+  --primary-200: #D7F5EA;
+  --primary-400: #179266;
+  --primary-600: #116044;
+  --primary-700: #0D4A34;
+  --primary-900: #04281B;
+  
+  /* Secondary Neutral Beige */
+  --neutral-200: #FEFBF6;
+  --neutral-300: #FDF6E8;
+  --neutral-400: #FBEDD0;
+  --neutral-500: #F6D798;
+  
+  /* Soft Black */
+  --soft-black: #28152C;
+  
+  /* Noticeable Yellow */
+  --yellow-200: #FEF2C7;
+  --yellow-400: #FEDF72;
+  --yellow-600: #FFC700;
+  --yellow-700: #E5B300;
+  --yellow-900: #CC9F00;
+  
+  /* Shiny Orange */
+  --orange-200: #FCBD88;
+  --orange-400: #F79A4A;
+  --orange-600: #EA7F24;
+  --orange-700: #D5680B;
+  --orange-900: #BB5702;
+  
+  /* Screaming Red */
+  --red-200: #FA8989;
+  --red-400: #F54D4D;
+  --red-600: #E72727;
+  --red-700: #D20F0F;
+  --red-900: #B80505;
+  
+  /* Main colors */
+  --background: var(--neutral-200);
+  --foreground: var(--soft-black);
+  --primary: var(--primary-400);
+  --accent: var(--yellow-600);
+  --warning: var(--orange-600);
+  --error: var(--red-600);
 }
-/* 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-crimson-pro), serif;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-700);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+  color: var(--primary-600);
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-600);
+}
+
+a {
+  color: var(--primary-400);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-600);
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.card {
+  border: 1px solid var(--neutral-400);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  border-color: var(--primary-200);
 }
