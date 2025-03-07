@@ -1,94 +1,107 @@
-'use client';
+import Link from 'next/link';
+import Image from 'next/image';
 
-import { Scrollyteller, Folio } from '@nomic-ai/atlas-stories-react';
-import '@nomic-ai/atlas-stories-react/dist/style.css';
-export default function Page() {
-  console.log({ Scrollyteller });
-
+export default function Home() {
   return (
-    <div
-      className="main"
-      style={{
-        margin: '50px',
-        maxWidth: 'calc(100vw - 100px)',
-      }}
-    >
-      <h1>Atlas story</h1>
-      <Scrollyteller map="nomic/wiki-people/map/c0551f2f-b449-46dd-92ed-3e4fd17e08e1">
-        <Folio zoom={{ x: [-50, 50], y: [-50, 50] }}>
-          This map is made of people. Each dot is a person, and the people are
-          organized by similarity. It's like soylent green but with more
-          famousness.
-        </Folio>
+    <div className="container">
+      <header className="flex items-center justify-between mb-8 border-b border-neutral-400 pb-4">
+        <div className="flex items-center gap-3">
+          <Image 
+            src="/nomic_dark_logo.webp" 
+            alt="Nomic Logo" 
+            width={40} 
+            height={40} 
+            className="rounded-md"
+          />
+          <h1 className="text-4xl font-bold m-0">Atlas Data Stories</h1>
+        </div>
+        <a 
+          href="https://atlas.nomic.ai" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-sm bg-primary-400 hover:bg-primary-600 text-white px-4 py-2 rounded-md transition-colors"
+        >
+          Visit Atlas
+        </a>
+      </header>
 
-        <Folio hash="bwzI">
-          The biggest level of organization is about occupation.
-        </Folio>
+      <div className="mb-8 bg-neutral-300 p-6 rounded-lg border-l-4 border-primary-400">
+        <h2 className="text-2xl mb-3">Welcome to the Atlas Data Stories Examples examples repository. </h2>
+        <p className="text-lg">
+          Atlas Data Stories allow you to create
+          interactive, scrollable narratives with your data maps.
+        </p>
+      </div>
 
-        <Folio hash="t32w" zoom={{ x: [-50, 50], y: [-50, 50] }}>
-          Wikipedia *loves* sports. Athletes are about 50% of all people in
-          Wikipedia, and occupy the entire bottom of the map.
-        </Folio>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <Link href="/humans-of-wikipedia" className="card hover:border-primary-400">
+          <h3 className="text-xl font-semibold mb-2">Humans of Wikipedia</h3>
+          <p className="mb-4">
+            Explore Wikipedia&apos;s people data, organized by similarity. See how athletes, 
+            historical figures, and other notable people cluster together.
+          </p>
+          <div className="text-sm text-primary-400 font-medium">View example →</div>
+        </Link>
 
-        <Folio hash="eXxy" zoom={{ x: [-18, 52], y: [5, 52] }}>
-          About one in seven of the people on Wikipedia play soccer *alone*.
-          Among soccer players, the sub-organization is by country.
-        </Folio>
+        <Link href="/y-combinator" className="card hover:border-primary-400">
+          <h3 className="text-xl font-semibold mb-2">Y Combinator Startups</h3>
+          <p className="mb-4">
+            Analyze Y Combinator startups to understand which ones succeed and why. 
+            Visualize clusters of startups and discover patterns in failure and success.
+          </p>
+          <div className="text-sm text-primary-400 font-medium">View example →</div>
+        </Link>
+      </div>
 
-        <Folio hash="Cofv" zoom={{ x: [-32, 45], y: [-47, 32] }}>
-          But categories aren't perfect -- we can't distinguish in the
-          occupational categories between players of **American** football (
-          where athletes compete not to kick a ball but to see who can take the
-          most traumatic brain injuries for the team ) and players of soccer
-          football.
-        </Folio>
+      <div className="mt-12 bg-primary-200 rounded-lg">
 
-        <Folio hash="lnWe" zoom={{ x: [-32, 45], y: [-47, 32] }} duration={300}>
-          This is a case where Atlas's semantic filters can help. Let's embed
-          everything by vector similarity to a sentence about American football.
-          {'>'} A player of football who runs up and down the gridiron with the
-          pigskin. Hike! Like Tom Brady. The red dots are the most similar, and
-          the yellow the least.
-        </Folio>
-
-        <Folio hash="iQBh" zoom={{ x: [-32, 45], y: [-47, 32] }} duration={300}>
-          Conversely, comparing to the sentence:
-          {'>'} A player of football who kicks and scores, drawing penalties and
-          red cards like Cristiano Ronaldo or Lionel Messi. We get almost
-          opposte results.
-        </Folio>
-
-        <Folio hash="mnJh" zoom={{ x: [-40, 45], y: [-47, 42] }}>
-          We can position by those two axes -- the "American" axis on the x axis
-          and the "Soccer" axis on the y -- to use these arbitrary sentences to
-          partition between the two sports. The farther to the right is US
-          football; to the top is soccer. The green to the lower right in this
-          vector space are the Americans once again. The partition is clean, but
-          not completely clear; some people fall in between.
-        </Folio>
-
-        <Folio hash="jbcl" zoom={{ x: [-5, 10], y: [-20, -15] }}>
-          You don't need embeddings to take advantage of Atlas's powerful
-          filters! Look at Europe, colored by region.
-        </Folio>
-
-        <Folio hash="rxzQ" zoom={{ x: [-5, 10], y: [-20, -15] }}>
-          Let's color by people born since 1945. You can clearly see the nations
-          of Europe.
-        </Folio>
-
-        <Folio hash="Vtu2" zoom={{ x: [-5, 10], y: [-20, -15] }}>
-          Let's color by people born between 1870 and 1945. These are the old
-          borders, with the German empire and fuzzier nationalities in Eastern
-          Europe.
-        </Folio>
-
-        <Folio hash="t6J0" zoom={{ x: [-5, 10], y: [-20, -15] }}>
-          When you move to where the people die, the definition increases.
-        </Folio>
-      </Scrollyteller>
+        <div className="mb-6">
+          <div>
+            <strong className="text-primary-700">Documentation:</strong>
+            <ul className="list-disc ml-6 mt-1">
+              <li>
+                <a 
+                  href="https://docs.nomic.ai/atlas/data-maps/data-stories" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="underline text-primary-600 hover:text-primary-700"
+                >
+                  Atlas Stories Overview
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://docs.nomic.ai/atlas/data-maps/guides/create-your-own-atlas-data-story" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="underline text-primary-600 hover:text-primary-700"
+                >
+                  Create Your Own Atlas Data Story - Detailed Guide
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div className="flex gap-4 mt-6">
+          <a 
+            href="https://docs.nomic.ai/atlas/data-maps/data-stories" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-sm bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-md transition-colors"
+          >
+            Read Documentation
+          </a>
+          <a 
+            href="https://join.slack.com/t/nomic-community/shared_invite/zt-3173tk278-kPJgDFGyPukUKwTYz8RRZQ" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-sm bg-white hover:bg-neutral-300 text-primary-600 border border-primary-600 px-4 py-2 rounded-md transition-colors"
+          >
+            Join Nomic Community Slack
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
-
-// export default Page;
